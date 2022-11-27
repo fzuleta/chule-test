@@ -12,8 +12,11 @@ const init = async () => {
   const app = express();
   let server: https.Server | http.Server;
 
-  // Only because we're running direct
+  // Only because we're running direct 
   if (process.env.usessl === 'true') {
+    const cert = fs.readFileSync(`${process.env.sslcert}`);
+    const key = fs.readFileSync(`${process.env.sslkey}`);
+    console.log('cert', cert.buffer.byteLength, key.toString());
     const ssloptions: any = {
       key: fs.readFileSync(`${process.env.sslkey}`),
       cert: fs.readFileSync(`${process.env.sslcert}`),
