@@ -9,8 +9,8 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      # - 80:8800
-      - 443:8800
+      - 80:8800
+      # - 443:8800
     volumes:
       - ./certs:/etc/letsencrypt
       - ./certs-data:/data/letsencrypt
