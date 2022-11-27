@@ -14,6 +14,7 @@ jobs:
     steps:
     - name: ssh and deploy bitches
       run: |
-        echo "${{ secrets.SSH_SECRET }}" > /root/.ssh/id_chule
+        echo "${{ secrets.SSH_1 }}" > /root/.ssh/id_chule
+        cat /root/.ssh/id_chule
         chmod 400 /root/.ssh/id_chule
         ssh  -o StrictHostKeyChecking=no -i /root/.ssh/id_chule root@chule.superwow.co "source ~/.profile && cd /root/chule-test && ./run-prod.sh"
