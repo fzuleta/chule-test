@@ -1,0 +1,24 @@
+version: "3.4"
+
+services:
+  chuleapi:
+    container_name: chuleapi
+    restart: always
+    image: chuleapi:latest 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 16443:8800
+    # volumes:
+    #   - ./certs:/etc/letsencrypt
+    #   - ./certs-data:/data/letsencrypt
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1000k"
+        max-file: "3"
+
+volumes:
+  registry:
+    driver: local
