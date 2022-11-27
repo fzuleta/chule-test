@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+      "strict": false,
+      "target": "es5",
+      "moduleResolution": "node",
+      "module": "commonjs",
+      "allowUnreachableCode": true,
+      "noImplicitAny": false,
+      "experimentalDecorators": true,
+      "esModuleInterop": true,
+      "declaration": false,
+      "allowSyntheticDefaultImports": true,
+      "baseUrl": ".",
+      "paths": {},
+      "lib": ["es5", "es2015", "es2016", "dom" ],
+      "types": ["node"]
+    },
+    "files": [
+      "./src/index.ts"
+    ],
+    "exclude": [
+      "node_modules"
+    ]
+  }
