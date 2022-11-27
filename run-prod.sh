@@ -7,6 +7,8 @@ npm i
 echo "npm and build"
 npm run build
 
+echo "docker compose build"
+docker compose build
 echo "docker compose up"
 docker compose up -d
 
