@@ -1,0 +1,11 @@
+Dockerfile*
+docker-compose*
+.dockerignore
+.git
+.gitignore
+.env
+.docker
+node_modules
+npm-debug.log
+certs
+certs-data

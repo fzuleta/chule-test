@@ -17,6 +17,6 @@ HEALTHCHECK --interval=1m --timeout=5s \
 
 EXPOSE 8800
 
-VOLUME [ "/ssl" ]
+VOLUME [ "/etc/letsencrypt", "/data/letsencrypt" ]
 
 CMD [ "node", "dist/index.js" ]
