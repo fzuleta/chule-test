@@ -21,4 +21,4 @@ jobs:
         if_key_exists: replace # replace / ignore / fail; optional (defaults to fail)
     - name: ssh and deploy bitches
       run: |
-        ssh  -o StrictHostKeyChecking=no -i /root/.ssh/id_chule root@chule.superwow.co "source ~/.profile && cd /root/chule-test && ./run-prod.sh"
+        ssh  -o StrictHostKeyChecking=no -i ~/.ssh/id_chule root@chule.superwow.co "source ~/.profile && cd /root/chule-test && ./run-prod.sh"
