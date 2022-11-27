@@ -1,0 +1,19 @@
+name: Dev Deploy 🚀
+on:
+  # pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16.x]
+        
+    steps:
+    - name: ssh and deploy bitches
+      run: |
+        echo "${{ secrets.SSH_SECRET }}" > /root/.ssh/id_chule
+        chmod 400 /root/.ssh/id_chule
+        ssh  -o StrictHostKeyChecking=no -i /root/.ssh/id_chule root@chule.superwow.co "source ~/.profile && cd /root/chule-test && ./run-prod.sh"
