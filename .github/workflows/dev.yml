@@ -12,9 +12,13 @@ jobs:
         node-version: [16.x]
         
     steps:
+    - name: Install SSH key
+      uses: shimataro/ssh-key-action@v2
+      with:
+        key: ${{ secrets.SSH_SECRET }}
+        name: id_chule # optional
+        known_hosts: ${{ secrets.KNOWN_HOSTS }}
+        if_key_exists: replace # replace / ignore / fail; optional (defaults to fail)
     - name: ssh and deploy bitches
       run: |
-        echo "${{ secrets.SSH_1 }}" > /root/.ssh/id_chule
-        cat /root/.ssh/id_chule
-        chmod 400 /root/.ssh/id_chule
         ssh  -o StrictHostKeyChecking=no -i /root/.ssh/id_chule root@chule.superwow.co "source ~/.profile && cd /root/chule-test && ./run-prod.sh"
